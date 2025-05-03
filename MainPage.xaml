@@ -69,28 +69,28 @@
                         <ScrollView Grid.Column="0" x:Name="SC1">
                             <VerticalStackLayout x:Name="SC1layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="SC1 o'rin"
+                                       Text="SC1 navbat"
                                        VerticalOptions="Start"/>
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="1" x:Name="SC2">
                             <VerticalStackLayout x:Name="SC2layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="SC2 o'rin"
+                                       Text="SC2 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="2" x:Name="SC3">
                             <VerticalStackLayout x:Name="SC3layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="SC3 o'rin"
+                                       Text="SC3 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="3" x:Name="SC4">
                             <VerticalStackLayout x:Name="SC4layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="SC4 o'rin"
+                                       Text="SC4 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
@@ -127,28 +127,28 @@
                         <ScrollView Grid.Column="0" x:Name="E1">
                             <VerticalStackLayout x:Name="E1layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="E1 o'rin"
+                                       Text="E1 navbat"
                                        VerticalOptions="Start"/>
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="1" x:Name="E2">
                             <VerticalStackLayout x:Name="E2layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="E2 o'rin"
+                                       Text="E2 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="2" x:Name="E3">
                             <VerticalStackLayout x:Name="E3layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="E3 o'rin"
+                                       Text="E3 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="3" x:Name="E4">
                             <VerticalStackLayout x:Name="E4layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="E4 o'rin"
+                                       Text="E4 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
@@ -185,28 +185,28 @@
                         <ScrollView Grid.Column="0" x:Name="HS1">
                             <VerticalStackLayout x:Name="HS1layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="HS1 o'rin"
+                                       Text="HS1 navbat"
                                        VerticalOptions="Start"/>
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="1" x:Name="HS2">
                             <VerticalStackLayout x:Name="HS2layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="HS2 o'rin"
+                                       Text="HS2 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="2" x:Name="HS3">
                             <VerticalStackLayout x:Name="HS3layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="HS3 o'rin"
+                                       Text="HS3 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="3" x:Name="HS4">
                             <VerticalStackLayout x:Name="HS4layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="HS4 o'rin"
+                                       Text="HS4 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
@@ -243,28 +243,28 @@
                         <ScrollView Grid.Column="0" x:Name="D1">
                             <VerticalStackLayout x:Name="D1layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="D1 o'rin"
+                                       Text="D1 navbat"
                                        VerticalOptions="Start"/>
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="1" x:Name="D2">
                             <VerticalStackLayout x:Name="D2layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="D2 o'rin"
+                                       Text="D2 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="2" x:Name="D3">
                             <VerticalStackLayout x:Name="D3layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="D3 o'rin"
+                                       Text="D3 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
                         <ScrollView Grid.Column="3" x:Name="D4">
                             <VerticalStackLayout x:Name="D4layout">
                                 <Label BackgroundColor="LightSalmon"
-                                       Text="D4 o'rin"
+                                       Text="D4 navbat"
                                        VerticalOptions="Start" />
                             </VerticalStackLayout>
                         </ScrollView>
@@ -276,17 +276,17 @@
         </Grid>
 
         <!-- O‘ng tarafdagi tugma -->
-        <ScrollView Grid.Column="1">
-            <Grid RowSpacing="15" Padding="15">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="9*" />
-                </Grid.RowDefinitions>
-                <Label BackgroundColor="LightBlue"
-                       Text="Xizmat ko'rsatish axboroti:"
-                       x:Name="StatusLabel"
-                       CharacterSpacing="1"
-                       Grid.Row="1"/>
+        <Grid Grid.Column="1" RowSpacing="15" Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="9*" />
+            </Grid.RowDefinitions>
+                <ScrollView Grid.Row="1">
+                    <Label BackgroundColor="LightBlue"
+                           Text="Xizmat ko'rsatish axboroti:"
+                           x:Name="StatusLabel"
+                           CharacterSpacing="1" />
+                </ScrollView>
                 <Button 
                     Grid.Row="0"
                     Text="Mijoz yaratish"
@@ -294,11 +294,10 @@
                     BorderColor="DarkBlue"
                     BorderWidth="2"
                     CornerRadius="4"
-                    VerticalOptions="End"
-                    Clicked="OnCreateCustomerClicked"/>
-            </Grid>
+                VerticalOptions="End"
+                Clicked="OnCreateCustomerClicked"/>
+        </Grid>
 
-        </ScrollView>
     </Grid>
 
 </ContentPage>
