@@ -1,10 +1,29 @@
 using System.Collections.Generic;
 using System.Linq;
+#nullable enable annotations
+#nullable enable
 
 namespace Bank_Queue
 {
     public partial class MainPage : ContentPage
     {
+        public bool servingToSC1 = false;
+        public bool servingToSC2 = false;
+        public bool servingToSC3 = false;
+        public bool servingToSC4 = false;
+        public bool servingToE1 = false;
+        public bool servingToE2 = false;
+        public bool servingToE3 = false;
+        public bool servingToE4 = false;
+        public bool servingToHS1 = false;
+        public bool servingToHS2 = false;
+        public bool servingToHS3 = false;
+        public bool servingToHS4 = false;
+        public bool servingToD1 = false;
+        public bool servingToD2 = false;
+        public bool servingToD3 = false;
+        public bool servingToD4 = false;
+
         private string[] families = new string[]
         {
             "Abdullayev", "Aliyev", "Asqarov", "Berkov", "Djanibekov", "Djumaniyazov", "Esanov", "Farukov", "Gafurov", "Guliyev",
@@ -260,17 +279,301 @@ namespace Bank_Queue
 
         private Button CreateCustomerButton(string name, string id)
         {
-            return new Button
+            Button button = new Button
             {
                 Text = $"{name} ({id})",
                 FontSize = 14,
                 BackgroundColor = Colors.LightGray,
                 Margin = new Thickness(5)
             };
+            button.Clicked += Selected;
+            return button;
+        }
+        public delegate void EventHandler(object sender, EventArgs e);
+        public void Selected(object sender, EventArgs e)
+        {
+            var clickedButton = (Button)sender;
+            var parent = clickedButton.Parent;
+            string p = "";
+            if (parent == SC1layout)
+            {
+                if (sc1Queue.Count > 0 && !servingToSC1)
+                {
+                    servingToSC1 = true;
+                    Button FE = sc1Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(sc1Queue);
+                    sc1Queue.Clear();
+                    sc1Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        sc1Queue.Enqueue(elem);
+                    }
+                }
+                p = "SC1";
+            }
+            else if (parent == SC2layout)
+            {
+                if (sc2Queue.Count > 0 && !servingToSC2)
+                {
+                    servingToSC2 = true;
+                    Button FE = sc2Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(sc2Queue);
+                    sc2Queue.Clear();
+                    sc2Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        sc2Queue.Enqueue(elem);
+                    }
+                }
+                p = "SC2";
+            }
+            else if (parent == SC3layout)
+            {
+                if (sc3Queue.Count > 0 && !servingToSC3)
+                {
+                    servingToSC3 = true;
+                    Button FE = sc3Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(sc3Queue);
+                    sc3Queue.Clear();
+                    sc3Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        sc3Queue.Enqueue(elem);
+                    }
+                }
+                p = "SC3";
+            }
+            else if (parent == SC4layout)
+            {
+                if (sc4Queue.Count > 0 && !servingToSC4)
+                {
+                    servingToSC4 = true;
+                    Button FE = sc4Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(sc4Queue);
+                    sc4Queue.Clear();
+                    sc4Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        sc4Queue.Enqueue(elem);
+                    }
+                }
+                p = "SC4";
+            }
+            else if (parent == E1layout)
+            {
+                if (e1Queue.Count > 0 && !servingToE1)
+                {
+                    servingToE1 = true;
+                    Button FE = e1Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(e1Queue);
+                    e1Queue.Clear();
+                    e1Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        e1Queue.Enqueue(elem);
+                    }
+                }
+                p = "E1";
+            }
+            else if (parent == E2layout)
+            {
+                if (e2Queue.Count > 0 && !servingToE2)
+                {
+                    servingToE2 = true;
+                    Button FE = e2Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(e2Queue);
+                    e2Queue.Clear();
+                    e2Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        e2Queue.Enqueue(elem);
+                    }
+                }
+                p = "E2";
+            }
+            else if (parent == E3layout)
+            {
+                if (e3Queue.Count > 0 && !servingToE3)
+                {
+                    servingToE3 = true;
+                    Button FE = e3Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(e3Queue);
+                    e3Queue.Clear();
+                    e3Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        e3Queue.Enqueue(elem);
+                    }
+                }
+                p = "E3";
+            }
+            else if (parent == E4layout)
+            {
+                if (e4Queue.Count > 0 && !servingToE4)
+                {
+                    servingToE4 = true;
+                    Button FE = e4Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(e4Queue);
+                    e4Queue.Clear();
+                    e4Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        e4Queue.Enqueue(elem);
+                    }
+                }
+                p = "E4";
+            }
+            else if (parent == HS1layout)
+            {
+                if (hs1Queue.Count > 0 && !servingToHS1)
+                {
+                    servingToHS1 = true;
+                    Button FE = hs1Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(hs1Queue);
+                    hs1Queue.Clear();
+                    hs1Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        hs1Queue.Enqueue(elem);
+                    }
+                }
+                p = "HS1";
+            }
+            else if (parent == HS2layout)
+            {
+                if (hs2Queue.Count > 0 && !servingToHS2)
+                {
+                    servingToHS2 = true;
+                    Button FE = hs2Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(hs2Queue);
+                    hs2Queue.Clear();
+                    hs2Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        hs2Queue.Enqueue(elem);
+                    }
+                }
+                p = "HS2";
+            }
+            else if (parent == HS3layout)
+            {
+                if (hs3Queue.Count > 0 && !servingToHS3)
+                {
+                    servingToHS3 = true;
+                    Button FE = hs3Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(hs3Queue);
+                    hs3Queue.Clear();
+                    hs3Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        hs3Queue.Enqueue(elem);
+                    }
+                }
+                p = "HS3";
+            }
+            else if (parent == HS4layout)
+            {
+                if (hs4Queue.Count > 0 && !servingToHS4)
+                {
+                    servingToHS4 = true;
+                    Button FE = hs4Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(hs4Queue);
+                    hs4Queue.Clear();
+                    hs4Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        hs4Queue.Enqueue(elem);
+                    }
+                }
+                p = "HS4";
+            }
+            else if (parent == D1layout)
+            {
+                if (d1Queue.Count > 0 && !servingToD1)
+                {
+                    servingToD1 = true;
+                    Button FE = d1Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(d1Queue);
+                    d1Queue.Clear();
+                    d1Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        d1Queue.Enqueue(elem);
+                    }
+                }
+                p = "D1";
+            }
+            else if (parent == D2layout)
+            {
+                if (d2Queue.Count > 0 && !servingToD2)
+                {
+                    servingToD2 = true;
+                    Button FE = d2Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(d2Queue);
+                    d2Queue.Clear();
+                    d2Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        d2Queue.Enqueue(elem);
+                    }
+                }
+                p = "D2";
+            }
+            else if (parent == D3layout)
+            {
+                if (d3Queue.Count > 0 && !servingToD3)
+                {
+                    servingToD3 = true;
+                    Button FE = d3Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(d3Queue);
+                    d3Queue.Clear();
+                    d3Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        d3Queue.Enqueue(elem);
+                    }
+                }
+                p = "D3";
+            }
+            else if (parent == D4layout)
+            {
+                if (d4Queue.Count > 0 && !servingToD4)
+                {
+                    servingToD4 = true;
+                    Button FE = d4Queue.Dequeue();
+                    FE.BackgroundColor = Colors.Purple;
+                    Queue<Button> RQ = new Queue<Button>(d4Queue);
+                    d4Queue.Clear();
+                    d4Queue.Enqueue(FE);
+                    foreach (var elem in RQ)
+                    {
+                        d4Queue.Enqueue(elem);
+                    }
+                }
+                p = "D4";
+            }
+
+            DisplayAlert("Xizmat ko'rsatilmoqda...", $" bo'lim {p}", "Yopish");
         }
 
         public void ServeToSC(object sender, EventArgs e)
         {
+            // SC1, SC2, SC3, SC4 navbatlari uchun label'lar
             Label sc1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "SC1 navbat", VerticalOptions = LayoutOptions.Start };
             Label sc2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "SC2 navbat", VerticalOptions = LayoutOptions.Start };
             Label sc3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "SC3 navbat", VerticalOptions = LayoutOptions.Start };
@@ -278,52 +581,58 @@ namespace Bank_Queue
 
             List<string> servedMessages = new();
 
-            if (sc1Queue.Count > 0)
+            // SC1 navbatni tekshirish
+            if (sc1Queue.Count > 0 && servingToSC1)
             {
-                var served = sc1Queue.Dequeue();
-                servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                var served = sc1Queue.Dequeue(); // navbatdagini olib tashlayapmiz
+                SC1layout.Children.Clear();             // Layoutni tozalash
+                SC1layout.Children.Add(sc1Label);       // Labelni qo‘shish
+                foreach (var btn in sc1Queue) SC1layout.Children.Add(btn);
+                servingToSC1 = false;
             }
-            if (sc2Queue.Count > 0)
+
+
+            // SC2, SC3, SC4 navbatlari uchun aynan shu tarzda ishlash
+            if (sc2Queue.Count > 0 && servingToSC2)
             {
                 var served = sc2Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                SC2layout.Children.Clear();
+                SC2layout.Children.Add(sc2Label);
+                foreach (var btn in sc2Queue) SC2layout.Add(btn);
+                servingToSC2 = false;
             }
-            if (sc3Queue.Count > 0)
+
+            if (sc3Queue.Count > 0 && servingToSC3)
             {
                 var served = sc3Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                SC3layout.Children.Clear();
+                SC3layout.Children.Add(sc3Label);
+                foreach (var btn in sc3Queue) SC3layout.Children.Add(btn);
+                servingToSC3 = false;
             }
-            if (sc4Queue.Count > 0)
+
+            if (sc4Queue.Count > 0 && servingToSC4)
             {
                 var served = sc4Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                SC4layout.Children.Clear();
+                SC4layout.Children.Add(sc4Label);
+                foreach (var btn in sc4Queue) SC4layout.Children.Add(btn);
+                servingToSC4 = false;
             }
 
-            // Layout tozalash
-            SC1layout.Children.Clear();
-            SC2layout.Children.Clear();
-            SC3layout.Children.Clear();
-            SC4layout.Children.Clear();
-
-            SC1layout.Children.Add(sc1Label);
-            SC2layout.Children.Add(sc2Label);
-            SC3layout.Children.Add(sc3Label);
-            SC4layout.Children.Add(sc4Label);
-
-            foreach (var btn in sc1Queue) SC1layout.Children.Add(btn);
-            foreach (var btn in sc2Queue) SC2layout.Children.Add(btn);
-            foreach (var btn in sc3Queue) SC3layout.Children.Add(btn);
-            foreach (var btn in sc4Queue) SC4layout.Children.Add(btn);
-
-            // StatusLabel yangilash
             foreach (var msg in servedMessages)
             {
                 StatusLabel.Text += msg + "\n";
             }
         }
 
+
         public void ServeToE(object sender, EventArgs e)
         {
+            // E1, E2, E3, E4 navbatlari uchun label'lar
             Label e1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "E1 navbat", VerticalOptions = LayoutOptions.Start };
             Label e2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "E2 navbat", VerticalOptions = LayoutOptions.Start };
             Label e3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "E3 navbat", VerticalOptions = LayoutOptions.Start };
@@ -331,164 +640,177 @@ namespace Bank_Queue
 
             List<string> servedMessages = new();
 
-            if (e1Queue.Count > 0)
+            // E1 navbatni tekshirish
+            if (e1Queue.Count > 0 && servingToE1)
             {
-                var served = e1Queue.Dequeue();
-                servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                var served = e1Queue.Dequeue(); // navbatdagini olib tashlayapmiz
+                E1layout.Children.Clear();             // Layoutni tozalash
+                E1layout.Children.Add(e1Label);       // Labelni qo‘shish
+                foreach (var btn in e1Queue) E1layout.Children.Add(btn);
+                servingToE1 = false;
             }
 
-            if (e2Queue.Count > 0)
+            // E2 navbatini tekshirish
+            if (e2Queue.Count > 0 && servingToE2)
             {
                 var served = e2Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                E2layout.Children.Clear();
+                E2layout.Children.Add(e2Label);
+                foreach (var btn in e2Queue) E2layout.Add(btn);
+                servingToE2 = false;
             }
 
-            if (e3Queue.Count > 0)
+            // E3 navbatini tekshirish
+            if (e3Queue.Count > 0 && servingToE3)
             {
                 var served = e3Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                E3layout.Children.Clear();
+                E3layout.Children.Add(e3Label);
+                foreach (var btn in e3Queue) E3layout.Children.Add(btn);
+                servingToE3 = false;
             }
 
-            if (e4Queue.Count > 0)
+            // E4 navbatini tekshirish
+            if (e4Queue.Count > 0 && servingToE4)
             {
                 var served = e4Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                E4layout.Children.Clear();
+                E4layout.Children.Add(e4Label);
+                foreach (var btn in e4Queue) E4layout.Children.Add(btn);
+                servingToE4 = false;
             }
 
-            E1layout.Children.Clear();
-            E2layout.Children.Clear();
-            E3layout.Children.Clear();
-            E4layout.Children.Clear();
-
-            E1layout.Children.Add(e1Label);
-            E2layout.Children.Add(e2Label);
-            E3layout.Children.Add(e3Label);
-            E4layout.Children.Add(e4Label);
-
-            foreach (var btn in e1Queue) E1layout.Children.Add(btn);
-            foreach (var btn in e2Queue) E2layout.Children.Add(btn);
-            foreach (var btn in e3Queue) E3layout.Children.Add(btn);
-            foreach (var btn in e4Queue) E4layout.Children.Add(btn);
-
-            // StatusLabel ga xizmat ko‘rsatilganlar haqida yozish
+            // Xizmat ko‘rsatish xabarlarini chiqarish
             foreach (var msg in servedMessages)
             {
                 StatusLabel.Text += msg + "\n";
             }
         }
+
 
         public void ServeToHS(object sender, EventArgs e)
         {
-            Label HS1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS1 navbat", VerticalOptions = LayoutOptions.Start };
-            Label HS2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS2 navbat", VerticalOptions = LayoutOptions.Start };
-            Label HS3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS3 navbat", VerticalOptions = LayoutOptions.Start };
-            Label HS4Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS4 navbat", VerticalOptions = LayoutOptions.Start };
+            // HS1, HS2, HS3, HS4 navbatlari uchun label'lar
+            Label hs1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS1 navbat", VerticalOptions = LayoutOptions.Start };
+            Label hs2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS2 navbat", VerticalOptions = LayoutOptions.Start };
+            Label hs3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS3 navbat", VerticalOptions = LayoutOptions.Start };
+            Label hs4Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "HS4 navbat", VerticalOptions = LayoutOptions.Start };
 
             List<string> servedMessages = new();
 
-            if (hs1Queue.Count > 0)
+            // HS1 navbatni tekshirish
+            if (hs1Queue.Count > 0 && servingToHS1)
             {
-                var served = hs1Queue.Dequeue();
-                servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                var served = hs1Queue.Dequeue(); // navbatdagini olib tashlayapmiz
+                HS1layout.Children.Clear();             // Layoutni tozalash
+                HS1layout.Children.Add(hs1Label);       // Labelni qo‘shish
+                foreach (var btn in hs1Queue) HS1layout.Children.Add(btn);
+                servingToHS1 = false;
             }
 
-            if (hs2Queue.Count > 0)
+            // HS2 navbatini tekshirish
+            if (hs2Queue.Count > 0 && servingToHS2)
             {
                 var served = hs2Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                HS2layout.Children.Clear();
+                HS2layout.Children.Add(hs2Label);
+                foreach (var btn in hs2Queue) HS2layout.Add(btn);
+                servingToHS2 = false;
             }
 
-            if (hs3Queue.Count > 0)
+            // HS3 navbatini tekshirish
+            if (hs3Queue.Count > 0 && servingToHS3)
             {
                 var served = hs3Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                HS3layout.Children.Clear();
+                HS3layout.Children.Add(hs3Label);
+                foreach (var btn in hs3Queue) HS3layout.Children.Add(btn);
+                servingToHS3 = false;
             }
 
-            if (hs4Queue.Count > 0)
+            // HS4 navbatini tekshirish
+            if (hs4Queue.Count > 0 && servingToHS4)
             {
                 var served = hs4Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                HS4layout.Children.Clear();
+                HS4layout.Children.Add(hs4Label);
+                foreach (var btn in hs4Queue) HS4layout.Children.Add(btn);
+                servingToHS4 = false;
             }
 
-            HS1layout.Children.Clear();
-            HS2layout.Children.Clear();
-            HS3layout.Children.Clear();
-            HS4layout.Children.Clear();
-
-            HS1layout.Children.Add(HS1Label);
-            HS2layout.Children.Add(HS2Label);
-            HS3layout.Children.Add(HS3Label);
-            HS4layout.Children.Add(HS4Label);
-
-            foreach (var btn in hs1Queue) HS1layout.Children.Add(btn);
-            foreach (var btn in hs2Queue) HS2layout.Children.Add(btn);
-            foreach (var btn in hs3Queue) HS3layout.Children.Add(btn);
-            foreach (var btn in hs4Queue) HS4layout.Children.Add(btn);
-
-            // StatusLabel ga xizmat ko‘rsatilganlar haqida yozish
+            // Xizmat ko‘rsatish xabarlarini chiqarish
             foreach (var msg in servedMessages)
             {
                 StatusLabel.Text += msg + "\n";
             }
         }
+
 
         public void ServeToD(object sender, EventArgs e)
         {
-            // Har bir bo‘lim uchun sarlavha
-            Label D1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D1 navbat", VerticalOptions = LayoutOptions.Start };
-            Label D2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D2 navbat", VerticalOptions = LayoutOptions.Start };
-            Label D3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D3 navbat", VerticalOptions = LayoutOptions.Start };
-            Label D4Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D4 navbat", VerticalOptions = LayoutOptions.Start };
+            // D1, D2, D3, D4 navbatlari uchun label'lar
+            Label d1Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D1 navbat", VerticalOptions = LayoutOptions.Start };
+            Label d2Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D2 navbat", VerticalOptions = LayoutOptions.Start };
+            Label d3Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D3 navbat", VerticalOptions = LayoutOptions.Start };
+            Label d4Label = new Label { BackgroundColor = Colors.LightSalmon, Text = "D4 navbat", VerticalOptions = LayoutOptions.Start };
 
-            // Status matnini yig‘ish uchun list
             List<string> servedMessages = new();
 
-            // Har bir bo‘limdan mijozni chaqirish va statusga yozish
-            if (d1Queue.Count > 0)
+            // D1 navbatni tekshirish
+            if (d1Queue.Count > 0 && servingToD1)
             {
-                var served = d1Queue.Dequeue();
-                servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                var served = d1Queue.Dequeue(); // navbatdagini olib tashlayapmiz
+                D1layout.Children.Clear();             // Layoutni tozalash
+                D1layout.Children.Add(d1Label);       // Labelni qo‘shish
+                foreach (var btn in d1Queue) D1layout.Children.Add(btn);
+                servingToD1 = false;
             }
 
-            if (d2Queue.Count > 0)
+            // D2 navbatini tekshirish
+            if (d2Queue.Count > 0 && servingToD2)
             {
                 var served = d2Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                D2layout.Children.Clear();
+                D2layout.Children.Add(d2Label);
+                foreach (var btn in d2Queue) D2layout.Add(btn);
+                servingToD2 = false;
             }
 
-            if (d3Queue.Count > 0)
+            // D3 navbatini tekshirish
+            if (d3Queue.Count > 0 && servingToD3)
             {
                 var served = d3Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                D3layout.Children.Clear();
+                D3layout.Children.Add(d3Label);
+                foreach (var btn in d3Queue) D3layout.Children.Add(btn);
+                servingToD3 = false;
             }
 
-            if (d4Queue.Count > 0)
+            // D4 navbatini tekshirish
+            if (d4Queue.Count > 0 && servingToD4)
             {
                 var served = d4Queue.Dequeue();
                 servedMessages.Add($"Mijoz {served.Text}ga xizmat ko‘rsatildi.");
+                D4layout.Children.Clear();
+                D4layout.Children.Add(d4Label);
+                foreach (var btn in d4Queue) D4layout.Children.Add(btn);
+                servingToD4 = false;
             }
 
-            // Layoutlarni tozalab, sarlavhalarni qayta qo‘shish
-            D1layout.Children.Clear();
-            D2layout.Children.Clear();
-            D3layout.Children.Clear();
-            D4layout.Children.Clear();
-
-            D1layout.Children.Add(D1Label);
-            D2layout.Children.Add(D2Label);
-            D3layout.Children.Add(D3Label);
-            D4layout.Children.Add(D4Label);
-
-            foreach (var btn in d1Queue) D1layout.Children.Add(btn);
-            foreach (var btn in d2Queue) D2layout.Children.Add(btn);
-            foreach (var btn in d3Queue) D3layout.Children.Add(btn);
-            foreach (var btn in d4Queue) D4layout.Children.Add(btn);
-
-            // StatusLabelga xabarlarni qo‘shish
+            // Xizmat ko‘rsatish xabarlarini chiqarish
             foreach (var msg in servedMessages)
             {
                 StatusLabel.Text += msg + "\n";
             }
         }
+
     }
 }
